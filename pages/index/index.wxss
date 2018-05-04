@@ -1,10 +1,5 @@
 /**index.wxss**/
 .content{
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
   background-color: #f4f0e5;
 }
 .userinfo {
@@ -69,10 +64,6 @@
     height: 220rpx;
     width: 370rpx
 }
-.content{
-  text-align: center;
-  font-size: 0
-}
 .cover {
     position:relative;
 }
@@ -107,3 +98,34 @@
   width: 750rpx;
   height: 429.35rpx;
 }
+.goods-info{
+  display:flex;
+  justify-content:space-between;
+  padding:0 10rpx 20rpx 10rpx;
+  width:100%;
+  box-sizing:border-box;
+}
+.goods-info .img-box {
+  width:160rpx;
+  height:160rpx;
+  overflow:hidden;
+  margin-right:20rpx;
+}
+.goods-info .img-box image{
+  width:160rpx;
+  height:160rpx;
+}
+.goods-info .text-box {
+  flex: 1;
+  position:relative;
+}
+.goods-title{
+  font-size: 28rpx;
+    color:#000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10rpx 20rpx 5rpx 0;
+}
+
+

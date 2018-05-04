@@ -1,4 +1,3 @@
-const config = require('../../config');
 
 //获取应用实例 //index.js
 const app = getApp()

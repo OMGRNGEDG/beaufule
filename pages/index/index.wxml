@@ -21,8 +21,13 @@
   </view>
   <view class='list' wx:if="{{list.length>0}}">
      <block wx:for-items="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
-        <view>
-          <image class="coverImg" src="{{ item.pic }}" mode='aspectFill'></image>
+        <view class='goods-info'>
+          <view class="img-box">
+            <image src="{{item.pic}}" class="img"/>
+           </view>
+           <view class='text-box'>
+            <view class='goods-title'>{{item.name}}</view>
+           </view>
         </view>
      </block>
   </view>

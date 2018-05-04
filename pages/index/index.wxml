@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="content">
+  <!-- <view class='top'>
+    <view class='search' bindtap='search'>
+       <icon type="search" size="14" color='#ffffff' />
+       <text class='seachT'>搜索</text>
+    </view>
+  </view> -->
+  <view class="vd">
+      <view class="video_column">
+          <view id="btop" class="cover" bindtap="openVideo">
+              <view class="cover_opacity">
+                  <image src="/images/play2.png"></image>
+              </view>
+              <image class="coverImg" src="/images/banner.png" mode='aspectFill'></image>
+          </view>
+      </view>
+  </view>
+  <view class='lovely'>
+    <image src='/images/msg.png' mode='aspectFill'></image>
+  
+  </view>
+
+
+
+
+
+
+</view>
+<video id="videoBox"
+  wx:if="{{ showVideoBox }}"
+  src="{{ videoBoxUrl }}"
+  controls="true"
+  page-gesture="false"
+  bindended="videoBoxEnd"
+  objectFit="contain"
+  bindfullscreenchange="videofullscreen"
+  enable-progress-gesture="false"
+  autoplay="true">
+</video>

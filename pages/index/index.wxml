@@ -8,7 +8,7 @@
   </view> -->
   <view class="vd">
       <view class="video_column">
-          <view id="btop" class="cover" bindtap="openVideo">
+          <view id="btop" class="cover" data-url="https://wxapp02-1256037341.file.myqcloud.com/video/7a11b838-f024-3d34-5090-8d75f77b24ef.mp4" bindtap="openVideo">
               <view class="cover_opacity">
                   <image src="/images/play2.png"></image>
               </view>
@@ -18,9 +18,14 @@
   </view>
   <view class='lovely'>
     <image src='/images/msg.png' mode='aspectFill'></image>
-  
   </view>
-
+  <view class='list' wx:if="{{list.length>0}}">
+     <block wx:for-items="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
+        <view>
+          <image class="coverImg" src="{{ item.pic }}" mode='aspectFill'></image>
+        </view>
+     </block>
+  </view>
 
 
 

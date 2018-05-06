@@ -114,5 +114,10 @@ Page({
     if (!e.detail.fullScreen) {
       this.videoBoxEnd()
     }
+  },
+  gotoDetails(e){
+    wx.navigateTo({
+      url: "/pages/details/index?id=" + e.currentTarget.dataset.id
+    })
   }
 })

@@ -21,7 +21,7 @@
   </view>
   <view class='list' wx:if="{{list.length>0}}">
      <block wx:for-items="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
-        <view class='goods-info'>
+        <view class='goods-info' catchtap='gotoDetails' data-id='{{item.id}}'>
           <view class="img-box">
             <image src="{{item.pic}}" class="img"/>
            </view>

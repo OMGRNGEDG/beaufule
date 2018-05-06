@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/my/index",
-    "pages/shop-cart/index"
+    "pages/shop-cart/index",
+    "pages/details/index"
   ],
   "window":{
     "navigationBarTextStyle": "black",

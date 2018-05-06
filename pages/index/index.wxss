@@ -98,11 +98,15 @@
   width: 750rpx;
   height: 429.35rpx;
 }
+.list{
+  padding-bottom: 20rpx;
+}
 .goods-info{
   display:flex;
   justify-content:space-between;
-  padding:0 10rpx 20rpx 10rpx;
+  margin:0 20rpx 20rpx 20rpx;
   width:100%;
+  background-color: #ffffff;
   box-sizing:border-box;
 }
 .goods-info .img-box {
@@ -112,8 +116,9 @@
   margin-right:20rpx;
 }
 .goods-info .img-box image{
-  width:160rpx;
-  height:160rpx;
+  width:136rpx;
+  height:136rpx;
+  margin:12rpx 0 0 12rpx;
 }
 .goods-info .text-box {
   flex: 1;

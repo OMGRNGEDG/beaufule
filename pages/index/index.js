@@ -118,6 +118,26 @@ Page({
   gotoDetails(e){
     wx.navigateTo({
       url: "/pages/details/index?id=" + e.currentTarget.dataset.id
+    });
+    var shopCarInfo = {
+      "shopList": [{ "goodsId": 46988, "pic": "https://cdn.it120.cc/apifactory/2018/05/03/be254ea0b059464b5ffeec70c652e320.jpg", "name": "外套", "propertyChildIds": "", "label": "", "price": 18, "score": 10, "left": "margin-left:0px", "active": true, "number": 3, "logisticsType": 0, "weight": 1 }, {
+        "goodsId": 46987,
+        "pic": "https://cdn.it120.cc/apifactory/2018/05/03/ab5484683e0a6da1f1893e046bf16177.png",
+        "name": "儿童袜子",
+        "propertyChildIds": "",
+        "label": "",
+        "price": 8,
+        "score": 10,
+        "left": "",
+        "active": true,
+        "number": 2,
+        "logisticsType": 0,
+        "weight": 0.8
+      }], "shopNum": 5 }
+    // 写入本地存储
+    wx.setStorage({
+      key: 'shopCarInfo',
+      data: shopCarInfo
     })
   }
 })

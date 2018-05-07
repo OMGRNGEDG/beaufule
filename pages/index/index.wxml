@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="content">
+  <view class='conBox'>
+
   <!-- <view class='top'>
     <view class='search' bindtap='search'>
        <icon type="search" size="14" color='#ffffff' />
@@ -31,7 +33,7 @@
         </view>
      </block>
   </view>
-
+</view>
 
 
 

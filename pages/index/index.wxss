@@ -1,7 +1,5 @@
 /**index.wxss**/
-.content{
-  background-color: #f4f0e5;
-}
+@import '../common/css/common.wxss' ;
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -105,7 +103,6 @@
   display:flex;
   justify-content:space-between;
   margin:0 20rpx 20rpx 20rpx;
-  width:100%;
   background-color: #ffffff;
   box-sizing:border-box;
 }

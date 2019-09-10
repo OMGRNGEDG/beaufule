@@ -1,4 +1,67 @@
-.page-section-gap{
-  box-sizing: border-box;
-  padding: 0 30rpx;
+page {
+  background-color: #ececec;
+}
+.body{
+  height: 400rpx;
+  width: 100%;
+  background:black;
+}
+.title-content {
+  background: #999;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.h-100 {
+  height: 50px
+}
+
+.title-child {
+  height: 200rpx;
+  background-color: #fff;
+}
+
+.scroll-container {
+  height: 800rpx
+}
+
+.position-item {
+  position: fixed;
+  top: 0;
+  width: 750rpx;
+  z-index: 9;
+}
+
+.upper-first-letter {
+  text-transform: lowercase;
+}
+
+.sub-title {
+  margin-right: 20rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #fff;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.input {
+  display: none
+}
+
+.input:checked + .colors {
+  border-color: #e63838;
+  color: #e63838;
+}
+
+.radio-view1 + radio {
+    height: 50px;
+    width: 50px;
+}
+
+.active-css {
+  color: #e63838;
+  border-color: #e63838;
 }

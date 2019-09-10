@@ -1,3 +1,21 @@
-<view>
-  <view>我的</view>
-</view>
+<wxs module="tools" src="./width.wxs"></wxs>
+<scroll-view scroll-y bindscroll="{{tools.stickyAnimation}}" data-secondarr="{{secondArr}}" data-sub="{{subTitleArr}}" data-height="{{heightArr}}" data-absolute="{{absoluteSections}}" data-newsection="{{newScrollSec}}" data-section="{{scrollSections}}" class="scroll-container" data-baseArr="{{baseArr}}">
+  <block wx:for="{{msg}}" wx:key="*this">
+    <block wx:if="{{item.title&&item.title.length>0}}">
+      <view class="title-content title-{{index}}" data-index="{{index}}">
+          <text class="sub-title sub-child-{{titleItem.position}}  {{activeIndex === titleItem.position ? 'active-css' : ''}}" style="item." wx:for="{{item.title}}" wx:for-item="titleItem" wx:for-index="titleIndex" wx:key="*this">{{titleItem.subTitle}}</text>
+      </view>
+      <view class="holder-view title-bottom-{{index}}"></view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{item.firstChirlen}}">
+          <view class="sub-title-child" data-index="{{index}}"></view>
+      </block>
+      <block wx:else>
+        <view class="title-child">
+          {{item.value}}
+        </view>
+      </block>
+    </block>
+  </block>
+</scroll-view>

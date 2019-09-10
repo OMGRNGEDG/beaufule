@@ -1,0 +1,93 @@
+var stickyAnimation = function (event, ownerInstance) {
+  var dataset = ownerInstance.selectComponent('.scroll-container').getDataset();
+  ownerInstance.selectComponent('.scroll-container').callMethod("onPageScroll")
+  var sections = dataset.section
+  var newSections = dataset.newsection
+  var absoluteSection = dataset.absolute
+  var heightArr = dataset.height
+  var subTitleArr = dataset.secondarr
+  var scrollTop = event.detail.scrollTop
+  var stickyPosition = 0
+  var absolutePosition = -1
+  var subPosition = 0
+  var state = ownerInstance.getState()
+  var len = sections.length
+  var absoluteLen = absoluteSection.length
+  var subLen = subTitleArr.length
+  var currentComponent = null
+  var topComponent = null
+  var bottomComponent = null;
+  for (var k = 0; k < subLen; k++) {
+    if (subTitleArr[k] <= scrollTop && subTitleArr[k + 1] && subTitleArr[k + 1] >= scrollTop) {
+      subPosition = k
+      break
+    } else if (subTitleArr[k] <= scrollTop && !subTitleArr[k + 1]) {
+      subPosition = k
+    }
+  }
+  currentComponent = ownerInstance.selectComponent('.sub-child-' + subPosition)
+  if (currentComponent && !currentComponent.hasClass('active-css')) {
+    currentComponent.addClass('active-css')
+    topComponent = ownerInstance.selectComponent('.sub-child-' + (subPosition + 1))
+    bottomComponent = ownerInstance.selectComponent('.sub-child-' + (subPosition - 1))
+    if (bottomComponent && bottomComponent.hasClass('active-css')) {
+      bottomComponent.removeClass('active-css')
+    } else if (topComponent && topComponent.hasClass('active-css')) {
+      topComponent.removeClass('active-css')
+    }
+  }
+
+  if (scrollTop - state.scrollTop > 0) {
+    for (var j = 0; j < absoluteLen; j++) {
+      if (absoluteSection[j].min <= scrollTop && absoluteSection[j].max > scrollTop) {
+        absolutePosition = j
+        break
+      }
+    }
+  }
+  for (var i = 0; i < len; i++) {
+    if (newSections[i] <= scrollTop && newSections[i + 1] && newSections[i + 1] > scrollTop) {
+      stickyPosition = i
+      break
+    } else if (newSections[i] <= scrollTop && !newSections[i + 1]) {
+      stickyPosition = i
+    }
+  }
+  if (absolutePosition >= 0) {
+    if (absolutePosition == 0) {
+      ownerInstance.selectComponent('.title-' + absolutePosition).setStyle({
+        'position': 'absolute',
+        'top': absoluteSection[absolutePosition].min + 'px'
+      })
+    } else {
+      ownerInstance.selectComponent('.title-' + (absoluteSection[absolutePosition - 1].index)).setStyle({
+        'position': 'absolute',
+        'top': absoluteSection[absolutePosition].min + 'px'
+      })
+    }
+
+  }
+
+  state.scrollTop = scrollTop
+  if (stickyPosition === state.position) return
+  if (state.position !== undefined) {
+    ownerInstance.selectComponent('.title-' + sections[state.position].index).removeClass('position-item')
+    ownerInstance.selectComponent('.title-bottom-' + sections[state.position].index).setStyle({})
+  }
+  if (stickyPosition - 1 >= 0) {
+    ownerInstance.selectComponent('.title-' + sections[(stickyPosition - 1)].index).setStyle({})
+  }
+
+  if (stickyPosition + 1 < len) {
+    ownerInstance.selectComponent('.title-' + sections[(stickyPosition + 1)].index).setStyle({})
+  }
+  ownerInstance.selectComponent('.title-' + sections[stickyPosition].index).addClass('position-item')
+  ownerInstance.selectComponent('.title-bottom-' + sections[stickyPosition].index).setStyle({
+    'height': heightArr[stickyPosition] + 'px'
+  })
+  state.position = stickyPosition;
+}
+
+module.exports = {
+  stickyAnimation: stickyAnimation
+}
